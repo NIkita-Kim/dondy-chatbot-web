@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import CompanyList from '../components/CompanyList';
 import { useParams } from 'react-router-dom';
+import SurveyList from '../components/SurveyList';
 
 const Surveys: FC = () => {
-  const params = useParams();
+  const { id } = useParams();
 
-  console.log(params);
   return (
     <>
       <h2 className="text-2xl font-bold tracking-tight text-gray-900">Surveys</h2>
-      <CompanyList />
+      { id && <SurveyList companyId={id} /> }
     </>
   );
 }
