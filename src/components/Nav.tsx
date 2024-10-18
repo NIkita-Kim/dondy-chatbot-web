@@ -9,6 +9,7 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/react';
+import { Link } from 'react-router-dom';
 
 function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ')
@@ -20,7 +21,7 @@ const user = {
 };
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
+  { name: 'Home', to: '/', current: true },
 ];
 
 const userNavigation = [
@@ -43,9 +44,9 @@ export const Nav: FC = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.to}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -53,7 +54,7 @@ export const Nav: FC = () => {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -105,7 +106,7 @@ export const Nav: FC = () => {
             <DisclosureButton
               key={item.name}
               as="a"
-              href={item.href}
+              href={item.to}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',

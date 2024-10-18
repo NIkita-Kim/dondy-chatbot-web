@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Button } from '@headlessui/react';
 import { useCreateChat } from '../lib/query-client/hooks/mutations/chat.mutation';
+import { useNavigate } from 'react-router-dom';
+import { useChats } from '../lib/query-client/hooks/queries/chat.query';
 
 type SurveyListItemProps = {
   _id: string;
@@ -10,7 +12,14 @@ type SurveyListItemProps = {
 };
 
 const SurveyListItem: FC<SurveyListItemProps> = ({ _id, name, description, companyId }: SurveyListItemProps) => {
-  const { mutate: createChat } = useCreateChat();
+  const navigate = useNavigate();
+  const { refetch } = useChats();
+  const { mutate: createChat } = useCreateChat({
+    onSuccess: ({ _id }) => {
+      navigate(`/chats/${_id}`);
+      refetch();
+    }
+  });
 
   const handleStartChat = () => {
     createChat({ survey: _id, company: companyId });

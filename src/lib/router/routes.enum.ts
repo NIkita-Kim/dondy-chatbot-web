@@ -3,4 +3,5 @@ export enum RoutesEnum {
   SIGN_IN = 'sign-in',
   SIGN_UP = 'sign_up',
   COMPANY_SURVEYS = 'company_surveys',
+  CHAT = 'chat',
 }

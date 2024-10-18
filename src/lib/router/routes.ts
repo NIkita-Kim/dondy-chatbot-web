@@ -5,4 +5,5 @@ export const ROUTES = {
   [RoutesEnum.SIGN_IN]: '/auth/sign-in',
   [RoutesEnum.SIGN_UP]: '/auth/sign-up',
   [RoutesEnum.COMPANY_SURVEYS]: '/companies/:id/surveys',
+  [RoutesEnum.CHAT]: '/chats/:id',
 }
