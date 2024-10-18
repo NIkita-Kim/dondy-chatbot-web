@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from '@tanstack/react-location';
+import { Link } from 'react-router-dom';
 import { ChevronRightIcon } from '@heroicons/react/16/solid';
 import { ChatRO } from '../lib/types/chat.type';
 

@@ -1,21 +1,14 @@
-import { FC, PropsWithChildren } from 'react';
-import { ReactLocation, Route, Router as TanstackRouter } from '@tanstack/react-location';
 import MainLayout from '../../layouts/MainLayout';
 import Home from '../../pages/Home';
+import { createBrowserRouter } from 'react-router-dom';
+import { ROUTES } from './routes';
 
-const routes: Route[] = [
+export default createBrowserRouter([
   {
+    path: ROUTES.home,
     element: <MainLayout />,
     children: [
-      { element: <Home /> },
+      { element: <Home />, index: true },
     ],
   },
-];
-
-const location = new ReactLocation();
-
-export const Router: FC<PropsWithChildren> = ({ children }) => (
-  <TanstackRouter routes={routes} location={location}>
-    { children }
-  </TanstackRouter>
-);
+]);

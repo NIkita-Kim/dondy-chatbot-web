@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ChevronRightIcon} from '@heroicons/react/16/solid';
-import { Link } from '@tanstack/react-location';
+import { Link } from 'react-router-dom';
 import { CompanyRO } from '../lib/types/company.type';
 
 type CompanyListItemProps = CompanyRO;
